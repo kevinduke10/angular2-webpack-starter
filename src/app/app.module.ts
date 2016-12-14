@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -16,6 +18,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
+import { ProfileComponent } from './profile';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 
@@ -39,6 +42,7 @@ type StoreType = {
   declarations: [
     AppComponent,
     AboutComponent,
+    ProfileComponent,
     HomeComponent,
     NoContentComponent,
     XLarge
@@ -47,7 +51,8 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    NgbModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
